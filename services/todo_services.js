@@ -8,6 +8,17 @@ class TodoServices{
 
          return createTodo;
     }
+
+    static async getTodoList(userId){
+     const  todoList = await TodoModel.find({userId});
+     
+     return todoList;
+    }
+
+    static async deleteitem(id){
+     const  deleted = await TodoModel.findOneAndDelete({_id:id}); 
+     return deleted;
+    }
 }
 
 module.exports = TodoServices;
